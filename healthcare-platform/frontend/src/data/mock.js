@@ -1,0 +1,180 @@
+import {
+  Activity,
+  Ambulance,
+  BedDouble,
+  Bell,
+  Bot,
+  Camera,
+  ClipboardPlus,
+  FileText,
+  Hospital,
+  MessageSquareHeart,
+  Pill,
+  QrCode,
+  ScanLine,
+  Stethoscope,
+  Users,
+} from "lucide-react";
+
+export const featureCards = [
+  {
+    title: "Smart Queue Prediction",
+    slug: "smart-queue-prediction",
+    icon: Activity,
+    text: "Predicts waiting time using doctor load, patient count, consultation duration and urgency.",
+    metric: "Live queue ETA",
+  },
+  {
+    title: "Notifications",
+    slug: "notifications",
+    icon: Bell,
+    text: "Handles appointment confirmation email, queue reminders and patient alerts.",
+    metric: "Email + alert ready",
+  },
+  {
+    title: "Analytics Dashboard",
+    slug: "analytics-dashboard",
+    icon: Hospital,
+    text: "Visualizes patient load, average wait time, doctor workload and operational alerts.",
+    metric: "Live DB analytics",
+  },
+  {
+    title: "Patient Feedback",
+    slug: "patient-feedback",
+    icon: MessageSquareHeart,
+    text: "Collects patient ratings, waiting experience, doctor feedback and satisfaction score.",
+    metric: "Experience score",
+  },
+  {
+    title: "Voice AI Assistant",
+    slug: "voice-ai-assistant",
+    icon: Bot,
+    text: "Patients can ask queue, medicine and appointment queries through voice.",
+    metric: "Multi-language ready",
+  },
+  {
+    title: "Health History Dashboard",
+    slug: "health-history-dashboard",
+    icon: ClipboardPlus,
+    text: "Shows previous visits, prescriptions, allergies, reports and chronic conditions.",
+    metric: "Unified record",
+  },
+  {
+    title: "Disease Risk Prediction",
+    slug: "disease-risk-prediction",
+    icon: Stethoscope,
+    text: "Gives risk indication based on symptoms, age and health history.",
+    metric: "Not diagnosis",
+  },
+  {
+    title: "Bed & Resource Management",
+    slug: "bed-resource-management",
+    icon: BedDouble,
+    text: "Tracks ICU beds, oxygen availability, room occupancy and equipment use.",
+    metric: "Live capacity",
+  },
+  {
+    title: "Pharmacy Integration",
+    slug: "pharmacy-integration",
+    icon: Pill,
+    text: "Checks medicine availability and sends digital prescriptions to pharmacy.",
+    metric: "Stock alerts",
+  },
+  {
+    title: "Digital Token & QR",
+    slug: "digital-token-qr",
+    icon: QrCode,
+    text: "Enables QR token check-in and live queue tracking.",
+    metric: "Token A-104",
+  },
+  {
+    title: "Telemedicine",
+    slug: "telemedicine",
+    icon: Camera,
+    text: "Allows online doctor consultation, report upload and e-prescriptions.",
+    metric: "Remote care",
+  },
+  {
+    title: "Multi-Hospital SaaS",
+    slug: "multi-hospital-saas",
+    icon: Users,
+    text: "Supports multiple hospitals with secure separated dashboards.",
+    metric: "Cloud ready",
+  },
+  {
+    title: "Ambulance Tracking",
+    slug: "ambulance-tracking",
+    icon: Ambulance,
+    text: "Tracks live ambulance location, ETA and hospital routing.",
+    metric: "6 min ETA",
+  },
+  {
+    title: "Report Summarization",
+    slug: "report-summarization",
+    icon: FileText,
+    text: "Summarizes reports and discharge notes in simple language.",
+    metric: "AI summary",
+  },
+  {
+    title: "Diagnostic Imaging Queue",
+    slug: "diagnostic-imaging-queue",
+    icon: ScanLine,
+    text: "Manages X-ray, CT scan, MRI and ultrasound queues with priority slots.",
+    metric: "4 imaging units",
+  },
+];
+
+export const queueData = [
+  {
+    name: "General Medicine",
+    patients: 38,
+    wait: 35,
+  },
+  {
+    name: "Emergency / Cardiology",
+    patients: 16,
+    wait: 22,
+  },
+  {
+    name: "Orthopedics",
+    patients: 21,
+    wait: 28,
+  },
+  {
+    name: "Diagnostic Imaging",
+    patients: 29,
+    wait: 42,
+  },
+  {
+    name: "Emergency",
+    patients: 11,
+    wait: 8,
+  },
+];
+
+export const imagingQueue = [
+  {
+    test: "X-Ray",
+    waiting: 12,
+    priority: 3,
+    avg: "18 min",
+  },
+  {
+    test: "CT Scan",
+    waiting: 8,
+    priority: 2,
+    avg: "32 min",
+  },
+  {
+    test: "MRI",
+    waiting: 6,
+    priority: 1,
+    avg: "45 min",
+  },
+  {
+    test: "Ultrasound",
+    waiting: 10,
+    priority: 2,
+    avg: "24 min",
+  },
+];
