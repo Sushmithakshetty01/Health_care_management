@@ -23,6 +23,8 @@ export const featureCards = [
     icon: Activity,
     text: "Predicts waiting time using doctor load, patient count, consultation duration and urgency.",
     metric: "Live queue ETA",
+    userPath: "/smart-queue-prediction",
+    adminPath: "/smart-queue-prediction",
   },
   {
     title: "Notifications",
@@ -30,6 +32,8 @@ export const featureCards = [
     icon: Bell,
     text: "Handles appointment confirmation email, queue reminders and patient alerts.",
     metric: "Email + alert ready",
+    userPath: "/notifications-dashboard",
+    adminPath: "/notifications-dashboard",
   },
   {
     title: "Analytics Dashboard",
@@ -37,6 +41,8 @@ export const featureCards = [
     icon: Hospital,
     text: "Visualizes patient load, average wait time, doctor workload and operational alerts.",
     metric: "Live DB analytics",
+    userPath: "/analytics-dashboard",
+    adminPath: "/analytics-dashboard",
   },
   {
     title: "Patient Feedback",
@@ -44,6 +50,8 @@ export const featureCards = [
     icon: MessageSquareHeart,
     text: "Collects patient ratings, waiting experience, doctor feedback and satisfaction score.",
     metric: "Experience score",
+    userPath: "/features/patient-feedback",
+    adminPath: "/admin/patient-feedback",
   },
   {
     title: "Voice AI Assistant",
@@ -51,6 +59,8 @@ export const featureCards = [
     icon: Bot,
     text: "Patients can ask queue, medicine and appointment queries through voice.",
     metric: "Multi-language ready",
+    userPath: "/features/voice-ai-assistant",
+    adminPath: "/features/voice-ai-assistant",
   },
   {
     title: "Health History Dashboard",
@@ -58,6 +68,8 @@ export const featureCards = [
     icon: ClipboardPlus,
     text: "Shows previous visits, prescriptions, allergies, reports and chronic conditions.",
     metric: "Unified record",
+    userPath: "/features/health-history-dashboard",
+    adminPath: "/features/health-history-dashboard",
   },
   {
     title: "Disease Risk Prediction",
@@ -65,6 +77,8 @@ export const featureCards = [
     icon: Stethoscope,
     text: "Gives risk indication based on symptoms, age and health history.",
     metric: "Not diagnosis",
+    userPath: "/features/disease-risk-prediction",
+    adminPath: "/features/disease-risk-prediction",
   },
   {
     title: "Bed & Resource Management",
@@ -72,6 +86,8 @@ export const featureCards = [
     icon: BedDouble,
     text: "Tracks ICU beds, oxygen availability, room occupancy and equipment use.",
     metric: "Live capacity",
+    userPath: "/features/bed-resource-management",
+    adminPath: "/features/bed-resource-management",
   },
   {
     title: "Pharmacy Integration",
@@ -79,6 +95,8 @@ export const featureCards = [
     icon: Pill,
     text: "Checks medicine availability and sends digital prescriptions to pharmacy.",
     metric: "Stock alerts",
+    userPath: "/features/pharmacy-integration",
+    adminPath: "/features/pharmacy-integration",
   },
   {
     title: "Digital Token & QR",
@@ -86,6 +104,8 @@ export const featureCards = [
     icon: QrCode,
     text: "Enables QR token check-in and live queue tracking.",
     metric: "Token A-104",
+    userPath: "/features/digital-token-qr",
+    adminPath: "/features/digital-token-qr",
   },
   {
     title: "Telemedicine",
@@ -93,6 +113,8 @@ export const featureCards = [
     icon: Camera,
     text: "Allows online doctor consultation, report upload and e-prescriptions.",
     metric: "Remote care",
+    userPath: "/features/telemedicine",
+    adminPath: "/features/telemedicine",
   },
   {
     title: "Multi-Hospital SaaS",
@@ -100,6 +122,8 @@ export const featureCards = [
     icon: Users,
     text: "Supports multiple hospitals with secure separated dashboards.",
     metric: "Cloud ready",
+    userPath: "/features/multi-hospital-saas",
+    adminPath: "/features/multi-hospital-saas",
   },
   {
     title: "Ambulance Tracking",
@@ -107,6 +131,8 @@ export const featureCards = [
     icon: Ambulance,
     text: "Tracks live ambulance location, ETA and hospital routing.",
     metric: "6 min ETA",
+    userPath: "/features/ambulance-tracking",
+    adminPath: "/features/ambulance-tracking",
   },
   {
     title: "Report Summarization",
@@ -114,6 +140,8 @@ export const featureCards = [
     icon: FileText,
     text: "Summarizes reports and discharge notes in simple language.",
     metric: "AI summary",
+    userPath: "/features/report-summarization",
+    adminPath: "/features/report-summarization",
   },
   {
     title: "Diagnostic Imaging Queue",
@@ -121,6 +149,8 @@ export const featureCards = [
     icon: ScanLine,
     text: "Manages X-ray, CT scan, MRI and ultrasound queues with priority slots.",
     metric: "4 imaging units",
+    userPath: "/features/diagnostic-imaging-queue",
+    adminPath: "/features/diagnostic-imaging-queue",
   },
 ];
 

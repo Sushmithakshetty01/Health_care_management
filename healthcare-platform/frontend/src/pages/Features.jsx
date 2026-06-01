@@ -224,21 +224,27 @@ export default function Features() {
       : featureCards;
 
   function getFeatureLink(slug) {
-    if (slug === "smart-queue-prediction") {
-      return role === "admin" ? "/admin" : "/smart-queue-prediction";
-    }
-
-    if (slug === "analytics-dashboard") {
-      return "/analytics-dashboard";
-    }
-
-    if (slug === "notifications") {
-      return "/notifications-dashboard";
-    }
-
-    return `/features/${slug}`;
+  if (slug === "smart-queue-prediction") {
+    return role === "admin" ? "/admin" : "/smart-queue-prediction";
   }
 
+  if (slug === "patient-feedback") {
+    return role === "admin"
+      ? "/admin/patient-feedback"
+      : "/features/patient-feedback";
+  }
+
+  if (slug === "analytics-dashboard") {
+    return "/analytics-dashboard";
+  }
+
+  if (slug === "notifications") {
+    return "/notifications-dashboard";
+  }
+
+  return `/features/${slug}`;
+  }
+  
   const isAdmin = role === "admin";
 
   return (
