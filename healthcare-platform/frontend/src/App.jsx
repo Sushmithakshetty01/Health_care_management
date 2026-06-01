@@ -12,6 +12,8 @@ import FeatureDetail from "./pages/FeatureDetail";
 import SmartQueuePrediction from "./pages/SmartQueuePrediction";
 import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import NotificationsDashboard from "./pages/NotificationsDashboard";
+import PatientFeedback from "./pages/PatientFeedback";
+import AdminFeedback from "./pages/AdminFeedback";
 
 export default function App() {
   return (
@@ -28,6 +30,15 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Features />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/features/patient-feedback"
+            element={
+              <ProtectedRoute role="user">
+                <PatientFeedback />
               </ProtectedRoute>
             }
           />
@@ -91,6 +102,15 @@ export default function App() {
             element={
               <ProtectedRoute role="admin">
                 <Admin />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/patient-feedback"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminFeedback />
               </ProtectedRoute>
             }
           />

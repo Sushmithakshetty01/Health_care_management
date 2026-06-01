@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 
 from .db import supabase
 from .models import SignupRequest, LoginRequest, AuthResponse, SymptomSubmitRequest
+from .routes.patient_feedback import router as patient_feedback_router
 from .auth import (
     hash_password,
     verify_password,
@@ -33,6 +34,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(patient_feedback_router)
 
 
 # -------------------------------------------------------------------
