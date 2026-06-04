@@ -11,6 +11,10 @@ from dotenv import load_dotenv
 from .db import supabase
 from .models import SignupRequest, LoginRequest, AuthResponse, SymptomSubmitRequest
 from .routes.patient_feedback import router as patient_feedback_router
+from .routes.voice_assistant import router as voice_assistant_router
+from .routes.disease_risk import router as disease_risk_router
+from .routes.health_history import router as health_history_router
+
 from .auth import (
     hash_password,
     verify_password,
@@ -36,6 +40,9 @@ app.add_middleware(
 )
 
 app.include_router(patient_feedback_router)
+app.include_router(voice_assistant_router)
+app.include_router(disease_risk_router)
+app.include_router(health_history_router)
 
 
 # -------------------------------------------------------------------
