@@ -14,6 +14,12 @@ import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import NotificationsDashboard from "./pages/NotificationsDashboard";
 import PatientFeedback from "./pages/PatientFeedback";
 import AdminFeedback from "./pages/AdminFeedback";
+import VoiceAssistant from "./pages/VoiceAssistant";
+import AdminVoiceAssistant from "./pages/AdminVoiceAssistant";
+import DiseaseRiskPrediction from "./pages/DiseaseRiskPrediction";
+import AdminDiseaseRisk from "./pages/AdminDiseaseRisk";
+import HealthHistoryDashboard from "./pages/HealthHistoryDashboard";
+import AdminHealthHistory from "./pages/AdminHealthHistory";
 
 export default function App() {
   return (
@@ -39,6 +45,33 @@ export default function App() {
             element={
               <ProtectedRoute role="user">
                 <PatientFeedback />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/features/voice-ai-assistant"
+            element={
+              <ProtectedRoute role="user">
+                <VoiceAssistant />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/features/disease-risk-prediction"
+            element={
+              <ProtectedRoute role="user">
+                <DiseaseRiskPrediction />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/features/health-history-dashboard"
+            element={
+              <ProtectedRoute role="user">
+                <HealthHistoryDashboard />
               </ProtectedRoute>
             }
           />
@@ -111,6 +144,33 @@ export default function App() {
             element={
               <ProtectedRoute role="admin">
                 <AdminFeedback />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/voice-ai-assistant"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminVoiceAssistant />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/disease-risk-prediction"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminDiseaseRisk />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/health-history-dashboard"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminHealthHistory />
               </ProtectedRoute>
             }
           />

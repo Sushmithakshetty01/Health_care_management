@@ -6,16 +6,12 @@ import {
   BarChart3,
   BedDouble,
   BrainCircuit,
-  CalendarClock,
-  CheckCircle2,
   HeartPulse,
   Hospital,
   Pill,
   ShieldCheck,
   Sparkles,
   Stethoscope,
-  Users,
-  Ambulance,
   Camera,
 } from "lucide-react";
 import { getUser } from "../api/client";
@@ -208,6 +204,9 @@ export default function Features() {
   const adminAllowedFeatures = [
     "smart-queue-prediction",
     "patient-feedback",
+    "voice-ai-assistant",
+    "disease-risk-prediction",
+    "health-history-dashboard",
     "analytics-dashboard",
     "bed-resource-management",
     "pharmacy-integration",
@@ -224,27 +223,45 @@ export default function Features() {
       : featureCards;
 
   function getFeatureLink(slug) {
-  if (slug === "smart-queue-prediction") {
-    return role === "admin" ? "/admin" : "/smart-queue-prediction";
+    if (slug === "smart-queue-prediction") {
+      return role === "admin" ? "/admin" : "/smart-queue-prediction";
+    }
+
+    if (slug === "patient-feedback") {
+      return role === "admin"
+        ? "/admin/patient-feedback"
+        : "/features/patient-feedback";
+    }
+
+    if (slug === "voice-ai-assistant") {
+      return role === "admin"
+        ? "/admin/voice-ai-assistant"
+        : "/features/voice-ai-assistant";
+    }
+
+    if (slug === "disease-risk-prediction") {
+      return role === "admin"
+        ? "/admin/disease-risk-prediction"
+        : "/features/disease-risk-prediction";
+    }
+
+    if (slug === "health-history-dashboard") {
+      return role === "admin"
+        ? "/admin/health-history-dashboard"
+        : "/features/health-history-dashboard";
+    }
+
+    if (slug === "analytics-dashboard") {
+      return "/analytics-dashboard";
+    }
+
+    if (slug === "notifications") {
+      return "/notifications-dashboard";
+    }
+
+    return `/features/${slug}`;
   }
 
-  if (slug === "patient-feedback") {
-    return role === "admin"
-      ? "/admin/patient-feedback"
-      : "/features/patient-feedback";
-  }
-
-  if (slug === "analytics-dashboard") {
-    return "/analytics-dashboard";
-  }
-
-  if (slug === "notifications") {
-    return "/notifications-dashboard";
-  }
-
-  return `/features/${slug}`;
-  }
-  
   const isAdmin = role === "admin";
 
   return (
@@ -279,7 +296,7 @@ export default function Features() {
 
               <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
                 {isAdmin
-                  ? "Access admin-supported modules such as smart queue control, analytics, bed resources, pharmacy, imaging queue, ambulance tracking and telemedicine."
+                  ? "Access admin-supported modules such as smart queue control, analytics, disease risk monitoring, health history records, bed resources, pharmacy, imaging queue, ambulance tracking and telemedicine."
                   : "Access all major hospital modules from one place. Core modules are connected to the backend, while remaining modules are frontend-ready for teammate integration and documentation."}
               </p>
 
@@ -415,8 +432,8 @@ export default function Features() {
             </h3>
 
             <p className="mt-3 text-sm leading-7 text-slate-500">
-              Telemedicine, notifications, records and analytics make the platform
-              useful for both patients and staff.
+              Telemedicine, notifications, records, risk prediction and analytics make
+              the platform useful for both patients and staff.
             </p>
           </div>
         </section>
