@@ -6,7 +6,7 @@ import {
   BarChart3,
   BedDouble,
   BrainCircuit,
-  HeartPulse,
+  HeartPulse,      
   Hospital,
   Pill,
   ShieldCheck,
@@ -213,6 +213,7 @@ export default function Features() {
     "diagnostic-imaging-queue",
     "ambulance-tracking",
     "telemedicine",
+    "digital-token-qr",
   ];
 
   const visibleFeatures =
@@ -254,6 +255,24 @@ export default function Features() {
     if (slug === "analytics-dashboard") {
       return "/analytics-dashboard";
     }
+
+    if (slug === "telemedicine") {
+  return role === "admin"
+    ? "/admin/telemedicine"
+    : "/features/telemedicine";
+}
+
+if (slug === "digital-token-qr") {
+  return role === "admin"
+    ? "/admin/digital-queue"
+    : "/features/digital-token-qr";
+}
+
+if (slug === "pharmacy-integration") {
+  return role === "admin"
+    ? "/admin/pharmacy"
+    : "/features/pharmacy";
+}
 
     if (slug === "notifications") {
       return "/notifications-dashboard";

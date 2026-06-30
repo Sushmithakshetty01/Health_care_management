@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { hospitalApi } from "../api/client";
+import { useNavigate } from "react-router-dom";
 import {
   Activity,
   CalendarClock,
   Plus,
+  Camera,
   RefreshCcw,
   Stethoscope,
   Users,
@@ -123,6 +125,17 @@ const DASHBOARD_IMAGES = [
     icon: Ambulance,
     color: "from-rose-500 to-red-500",
   },
+
+  {
+  title: "Telemedicine",
+  desc: "Manage consultations, reports and prescriptions.",
+  image:
+    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=900&q=80",
+  icon: Camera,
+  color: "from-cyan-500 to-blue-500",
+  path: "/admin/telemedicine",
+},
+  
 ];
 
 function StatCard({
@@ -496,6 +509,7 @@ function InsightCard({ icon: Icon, title, value, desc, gradient }) {
 }
 
 export default function Admin() {
+  const navigate = useNavigate();
   const [departments, setDepartments] = useState([]);
   const [doctors, setDoctors] = useState([]);
   const [queue, setQueue] = useState([]);
@@ -880,8 +894,14 @@ export default function Admin() {
 
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {DASHBOARD_IMAGES.map((item) => (
-              <FeatureImageCard key={item.title} item={item} />
-            ))}
+  <div
+    key={item.title}
+    onClick={() => item.path && navigate(item.path)}
+    className="cursor-pointer"
+  >
+    <FeatureImageCard item={item} />
+  </div>
+))}
           </div>
         </section>
 

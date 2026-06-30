@@ -1,8 +1,9 @@
+﻿from fastapi.middleware.cors import CORSMiddleware
 import os
 import smtplib
 from email.message import EmailMessage
 from datetime import datetime, timezone, timedelta
-
+from app.routes.pharmacy import router as pharmacy_router
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -14,6 +15,12 @@ from .routes.patient_feedback import router as patient_feedback_router
 from .routes.voice_assistant import router as voice_assistant_router
 from .routes.disease_risk import router as disease_risk_router
 from .routes.health_history import router as health_history_router
+from .routes.bed_resource import router as bed_resource_router
+from .routes.digital_token import router as digital_token_router
+from .routes.telemedicine import router as telemedicine_router
+
+
+
 
 from .auth import (
     hash_password,
@@ -25,15 +32,10 @@ from .auth import (
 load_dotenv()
 
 app = FastAPI(title="Smart Healthcare Queue API", version="1.0.0")
-
+app.include_router(pharmacy_router)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:5174",
-        "http://127.0.0.1:5174",
-    ],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -43,7 +45,9 @@ app.include_router(patient_feedback_router)
 app.include_router(voice_assistant_router)
 app.include_router(disease_risk_router)
 app.include_router(health_history_router)
-
+app.include_router(bed_resource_router)
+app.include_router(digital_token_router)
+app.include_router(telemedicine_router)
 
 # -------------------------------------------------------------------
 # REQUEST MODELS
@@ -146,7 +150,7 @@ def calculate_wait_values(
     calculation_note = (
         f"{note_prefix}: {patients_before} patients are before this patient. "
         f"Consultation time is {consult_minutes} minutes per patient. "
-        f"Base wait = {patients_before} × {consult_minutes} = {base_wait} minutes. "
+        f"Base wait = {patients_before} Ã— {consult_minutes} = {base_wait} minutes. "
         f"Urgency level is {urgency}. "
         f"Priority-adjusted wait = {priority_wait} minutes. "
         f"Priority adjustment = {priority_adjustment} minutes. "
@@ -1411,3 +1415,10 @@ def admin_appointments(admin: dict = Depends(require_admin)):
     )
 
     return result.data or []
+
+
+
+
+
+
+

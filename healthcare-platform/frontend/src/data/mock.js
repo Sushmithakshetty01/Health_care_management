@@ -95,8 +95,8 @@ export const featureCards = [
     icon: Pill,
     text: "Checks medicine availability and sends digital prescriptions to pharmacy.",
     metric: "Stock alerts",
-    userPath: "/features/pharmacy-integration",
-    adminPath: "/features/pharmacy-integration",
+   userPath: "/features/pharmacy",
+adminPath: "/admin/pharmacy",
   },
   {
     title: "Digital Token & QR",

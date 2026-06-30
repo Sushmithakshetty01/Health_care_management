@@ -27,6 +27,7 @@ def create_access_token(user: dict) -> str:
     return jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
 
 def get_current_user(token: str = Depends(oauth2_scheme)):
+    print("TOKEN RECEIVED:", token)
     try:
         payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
         user_id = payload.get("sub")

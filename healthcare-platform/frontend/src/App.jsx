@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -9,27 +10,57 @@ import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
 import Features from "./pages/Features";
 import FeatureDetail from "./pages/FeatureDetail";
+
 import SmartQueuePrediction from "./pages/SmartQueuePrediction";
 import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import NotificationsDashboard from "./pages/NotificationsDashboard";
+
 import PatientFeedback from "./pages/PatientFeedback";
 import AdminFeedback from "./pages/AdminFeedback";
+
 import VoiceAssistant from "./pages/VoiceAssistant";
 import AdminVoiceAssistant from "./pages/AdminVoiceAssistant";
+
 import DiseaseRiskPrediction from "./pages/DiseaseRiskPrediction";
 import AdminDiseaseRisk from "./pages/AdminDiseaseRisk";
+
 import HealthHistoryDashboard from "./pages/HealthHistoryDashboard";
 import AdminHealthHistory from "./pages/AdminHealthHistory";
+
+import BedResourceManagement from "./pages/BedResourceManagement";
+
+import DigitalTokenQR from "./pages/DigitalTokenQR";
+import AdminDigitalQueue from "./pages/AdminDigitalQueue";
+
+import Telemedicine from "./pages/Telemedicine";
+import AdminTelemedicine from "./pages/AdminTelemedicine";
+
+import PharmacyDashboard from "./pages/PharmacyDashboard";
+import AdminPharmacyDashboard from "./pages/AdminPharmacyDashboard";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Layout>
         <Routes>
+
+          {/* HOME */}
+
           <Route path="/" element={<Home />} />
 
-          <Route path="/login" element={<Auth mode="login" />} />
-          <Route path="/signup" element={<Auth mode="signup" />} />
+          {/* AUTH */}
+
+          <Route
+            path="/login"
+            element={<Auth mode="login" />}
+          />
+
+          <Route
+            path="/signup"
+            element={<Auth mode="signup" />}
+          />
+
+          {/* FEATURES */}
 
           <Route
             path="/features"
@@ -39,6 +70,38 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+          
+          {/* DIGITAL TOKEN PAGE */}
+          <Route
+            path="/features/digital-token-qr"
+            element={
+              <ProtectedRoute>
+                <DigitalTokenQR />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+  path="/features/telemedicine"
+  element={
+    <ProtectedRoute>
+      <Telemedicine />
+    </ProtectedRoute>
+  }
+/>
+
+          {/* FEATURE DETAILS */}
+
+          <Route
+            path="/features/:slug"
+            element={
+              <ProtectedRoute>
+                <FeatureDetail />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* USER MODULES */}
 
           <Route
             path="/features/patient-feedback"
@@ -77,13 +140,15 @@ export default function App() {
           />
 
           <Route
-            path="/features/:slug"
+            path="/features/bed-resource-management"
             element={
               <ProtectedRoute>
-                <FeatureDetail />
+                <BedResourceManagement />
               </ProtectedRoute>
             }
           />
+
+          {/* DASHBOARDS */}
 
           <Route
             path="/smart-queue-prediction"
@@ -112,6 +177,8 @@ export default function App() {
             }
           />
 
+          {/* USER */}
+
           <Route
             path="/symptoms"
             element={
@@ -129,6 +196,8 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+
+          {/* ADMIN */}
 
           <Route
             path="/admin"
@@ -174,7 +243,44 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+
+       
+
+            <Route
+  path="/admin/telemedicine"
+  element={
+    <ProtectedRoute role="admin">
+      <AdminTelemedicine />
+    </ProtectedRoute>
+  }
+/><Route
+  path="/admin/digital-queue"
+  element={<AdminDigitalQueue />}
+/>
+
+<Route
+    path="/features/pharmacy"
+    element={
+        <ProtectedRoute role="user">
+            <PharmacyDashboard />
+        </ProtectedRoute>
+    }
+/>
+
+<Route
+    path="/admin/pharmacy"
+    element={
+        <ProtectedRoute role="admin">
+            <AdminPharmacyDashboard />
+        </ProtectedRoute>
+    }
+/>
+
+
         </Routes>
+
+        
+
       </Layout>
     </BrowserRouter>
   );

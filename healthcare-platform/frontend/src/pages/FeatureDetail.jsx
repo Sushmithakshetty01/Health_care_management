@@ -246,7 +246,7 @@ const featureDetails = {
     ],
   },
   "digital-token-qr": {
-    title: "Digital Token & QR Queue System",
+    title: "TANMAY FEATURE DETAIL TEST",
     icon: QrCode,
     tag: "QR Check-in",
     description:

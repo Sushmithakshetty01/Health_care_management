@@ -6,8 +6,10 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
+    "axios": "^1.18.0",
     "framer-motion": "^12.40.0",
     "lucide-react": "latest",
+    "qrcode.react": "^4.2.0",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "latest",
