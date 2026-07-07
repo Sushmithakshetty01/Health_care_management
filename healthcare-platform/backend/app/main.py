@@ -18,7 +18,7 @@ from .routes.health_history import router as health_history_router
 from .routes.bed_resource import router as bed_resource_router
 from .routes.digital_token import router as digital_token_router
 from .routes.telemedicine import router as telemedicine_router
-
+from app.routes.diagnostic_imaging import router as diagnostic_router
 
 
 
@@ -48,7 +48,7 @@ app.include_router(health_history_router)
 app.include_router(bed_resource_router)
 app.include_router(digital_token_router)
 app.include_router(telemedicine_router)
-
+app.include_router(diagnostic_router)
 # -------------------------------------------------------------------
 # REQUEST MODELS
 # -------------------------------------------------------------------

@@ -38,6 +38,8 @@ import AdminTelemedicine from "./pages/AdminTelemedicine";
 import PharmacyDashboard from "./pages/PharmacyDashboard";
 import AdminPharmacyDashboard from "./pages/AdminPharmacyDashboard";
 
+import AdminDiagnosticQueue from './pages/AdminDiagnosticQueue';
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -253,11 +255,28 @@ export default function App() {
       <AdminTelemedicine />
     </ProtectedRoute>
   }
+  
 /><Route
   path="/admin/digital-queue"
   element={<AdminDigitalQueue />}
 />
+<Route
+  path="/admin/diagnostic-queue"
+  element={
+    <ProtectedRoute role="admin">
+      <AdminDiagnosticQueue />
+    </ProtectedRoute>
+  }
+/>
 
+<Route
+  path="/admin/digital-queue"
+  element={
+    <ProtectedRoute role="admin">
+      <AdminDigitalQueue />
+    </ProtectedRoute>
+  }
+/>
 <Route
     path="/features/pharmacy"
     element={

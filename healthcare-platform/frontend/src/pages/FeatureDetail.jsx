@@ -30,7 +30,9 @@ import {
   ClipboardCheck,
 } from "lucide-react";
 import { imagingQueue, queueData } from "../data/mock";
-
+import UserDiagnosticQueue from './UserDiagnosticQueue';
+import AdminDiagnosticQueue from './AdminDiagnosticQueue';
+import { getUser } from "../api/client";
 const FEATURE_IMAGES = [
   {
     title: "Digital Hospital Flow",
@@ -341,11 +343,7 @@ const featureDetails = {
     tag: "X-ray / CT / MRI",
     description:
       "Manages imaging queues for X-ray, CT scan, MRI and ultrasound with emergency priority slots.",
-    stats: [
-      ["X-Ray Waiting", "12"],
-      ["CT Scan Waiting", "8"],
-      ["MRI Waiting", "6"],
-    ],
+    stats: [],
     workflow: [
       "Select imaging test",
       "Assign queue token",
@@ -651,7 +649,9 @@ function MiniTrendChart() {
 export default function FeatureDetail() {
   const { slug } = useParams();
   const feature = featureDetails[slug];
+  const user = getUser();
 
+const role = String(user?.role || "").toLowerCase();
   if (!feature) {
     return (
       <main className="min-h-screen bg-slate-50 px-4 py-16">
@@ -836,7 +836,7 @@ export default function FeatureDetail() {
             />
 
             <div className="grid gap-5 md:grid-cols-4">
-              {imagingQueue.map((item) => (
+              {/* {imagingQueue.map((item) => (
                 <div
                   key={item.test}
                   className="group relative overflow-hidden rounded-3xl border border-white/80 bg-white p-6 shadow-xl shadow-slate-200/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
@@ -870,7 +870,7 @@ export default function FeatureDetail() {
                     </div>
                   </div>
                 </div>
-              ))}
+              ))} */}
             </div>
           </section>
         )}
@@ -984,6 +984,15 @@ export default function FeatureDetail() {
             </div>
           </div>
         </section>
+    {slug === "diagnostic-imaging-queue" && (
+  <div className="mt-6">
+    {role === "admin" ? (
+      <AdminDiagnosticQueue />
+    ) : (
+      <UserDiagnosticQueue />
+    )}
+  </div>
+)}
       </div>
     </main>
   );

@@ -456,6 +456,7 @@ if (slug === "pharmacy-integration") {
             </p>
           </div>
         </section>
+        
       </div>
     </main>
   );

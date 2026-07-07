@@ -135,7 +135,14 @@ const DASHBOARD_IMAGES = [
   color: "from-cyan-500 to-blue-500",
   path: "/admin/telemedicine",
 },
-  
+  {
+    title: "Diagnostic Imaging Queue",
+    desc: "Manage and triage urgent slots for X-Ray, CT Scan, MRI, and Ultrasound requests.",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=900&q=80",
+    icon: Camera, // Uses the lucide icon imported at the top of the file
+    color: "from-teal-600 to-emerald-500",
+    path: "/admin/diagnostic-queue", // This matches the path we are putting in App.jsx
+  }
 ];
 
 function StatCard({
