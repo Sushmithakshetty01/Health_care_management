@@ -40,6 +40,9 @@ import AdminPharmacyDashboard from "./pages/AdminPharmacyDashboard";
 
 import AdminDiagnosticQueue from './pages/AdminDiagnosticQueue';
 
+import AmbulanceRequest from "./pages/AmbulanceRequest";    
+import AdminAmbulance from "./pages/AdminAmbulance";        
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -294,6 +297,24 @@ export default function App() {
         </ProtectedRoute>
     }
 />
+        {/* Add these two new routes here */}
+        <Route
+          path="/ambulance-request"
+          element={
+            <ProtectedRoute>
+              <AmbulanceRequest />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/ambulance"
+          element={
+            <ProtectedRoute role="admin">
+              <AdminAmbulance />
+            </ProtectedRoute>
+          }
+        />
 
 
         </Routes>
