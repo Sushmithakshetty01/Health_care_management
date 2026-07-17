@@ -43,6 +43,9 @@ import AdminDiagnosticQueue from './pages/AdminDiagnosticQueue';
 import AmbulanceRequest from "./pages/AmbulanceRequest"; 
 import AdminAmbulance from "./pages/AdminAmbulance";
 
+import AdminSaaS from "./pages/AdminSaaS";
+import UserSaaS from "./pages/UserSaaS";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -316,6 +319,11 @@ export default function App() {
     </ProtectedRoute>
   }
 />
+{/* Admin SaaS Route */}
+<Route path="/admin/saas" element={<AdminSaaS />} />
+
+{/* User SaaS Route */}
+<Route path="/features/multi-hospital-saas" element={<UserSaaS />} />
         </Routes>
 
         

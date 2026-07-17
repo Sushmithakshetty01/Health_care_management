@@ -214,7 +214,8 @@ export default function Features() {
     "ambulance-tracking",
     "telemedicine",
     "digital-token-qr",
-    
+    "multi-hospital-saas",       
+    "report-summarization",
   ];
 
   const visibleFeatures =
@@ -279,11 +280,21 @@ if (slug === "ambulance-tracking") {
       ? "/admin/ambulance-tracking"
       : "/features/ambulance-tracking";
   }
-  
+
     if (slug === "notifications") {
       return "/notifications-dashboard";
     }
+if (slug === "multi-hospital-saas") {
+      return role === "admin"
+        ? "/admin/saas" // Your admin dashboard routing path
+        : "/features/multi-hospital-saas";
+    }
 
+    if (slug === "report-summarization") {
+      return role === "admin"
+        ? "/admin/report-summarization"
+        : "/features/report-summarization";
+    }
     return `/features/${slug}`;
   }
 

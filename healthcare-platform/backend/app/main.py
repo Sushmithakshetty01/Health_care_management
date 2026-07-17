@@ -20,7 +20,7 @@ from .routes.digital_token import router as digital_token_router
 from .routes.telemedicine import router as telemedicine_router
 from app.routes.diagnostic_imaging import router as diagnostic_router
 from .routes.ambulance import router as ambulance_router
-
+from app.routes.saas import router as saas_router
 
 from .auth import (
     hash_password,
@@ -50,6 +50,7 @@ app.include_router(digital_token_router)
 app.include_router(telemedicine_router)
 app.include_router(diagnostic_router)
 app.include_router(ambulance_router)
+app.include_router(saas_router)
 # -------------------------------------------------------------------
 # REQUEST MODELS
 # -------------------------------------------------------------------
