@@ -214,6 +214,7 @@ export default function Features() {
     "ambulance-tracking",
     "telemedicine",
     "digital-token-qr",
+    
   ];
 
   const visibleFeatures =
@@ -273,7 +274,12 @@ if (slug === "pharmacy-integration") {
     ? "/admin/pharmacy"
     : "/features/pharmacy";
 }
-
+if (slug === "ambulance-tracking") {
+    return role === "admin"
+      ? "/admin/ambulance-tracking"
+      : "/features/ambulance-tracking";
+  }
+  
     if (slug === "notifications") {
       return "/notifications-dashboard";
     }

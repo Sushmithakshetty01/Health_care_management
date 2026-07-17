@@ -13,6 +13,7 @@ def get_global_status(row_id: int):
         return result.data[0]
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
 @router.get("/list")
 def get_hospital_list():
     """Fetches just the IDs and names of all registered hospitals for dropdown lists"""
@@ -21,6 +22,7 @@ def get_hospital_list():
         return result.data
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
 @router.put("/status/{row_id}")
 def update_global_status(row_id: int, count: int = None, report_status: str = None, saas_status: str = None):
     """Admin updates any or all 3 features in the same row dynamically"""
@@ -43,5 +45,26 @@ def update_global_status(row_id: int, count: int = None, report_status: str = No
         if not result.data:
             raise HTTPException(status_code=404, detail=f"Failed to update record with ID {row_id}")
         return {"message": "Global features updated successfully", "data": result.data[0]}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/request")
+def create_emergency_request(hospital_id: int, message: str):
+    """Saves a user's emergency message to the database for the admin to see"""
+    try:
+        payload = {"hospital_id": hospital_id, "message": message, "status": "Pending"}
+        result = supabase.table("emergency_requests").insert(payload).execute()
+        if not result.data:
+            raise HTTPException(status_code=400, detail="Failed to log emergency request")
+        return {"status": "success", "data": result.data[0]}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/requests")
+def get_emergency_requests():
+    """Fetches all incoming emergency location and situation messages for the admin"""
+    try:
+        result = supabase.table("emergency_requests").select("*").order("created_at", desc=True).execute()
+        return result.data
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

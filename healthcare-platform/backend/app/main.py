@@ -5,6 +5,7 @@ from email.message import EmailMessage
 from datetime import datetime, timezone, timedelta
 from app.routes.pharmacy import router as pharmacy_router
 from fastapi import FastAPI, HTTPException, Depends
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
@@ -18,8 +19,7 @@ from .routes.bed_resource import router as bed_resource_router
 from .routes.digital_token import router as digital_token_router
 from .routes.telemedicine import router as telemedicine_router
 from app.routes.diagnostic_imaging import router as diagnostic_router
-from app.routes.ambulance import router as ambulance_router
-
+from .routes.ambulance import router as ambulance_router
 
 
 from .auth import (

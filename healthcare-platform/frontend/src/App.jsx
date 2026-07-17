@@ -40,9 +40,8 @@ import AdminPharmacyDashboard from "./pages/AdminPharmacyDashboard";
 
 import AdminDiagnosticQueue from './pages/AdminDiagnosticQueue';
 
-import AmbulanceRequest from "./pages/AmbulanceRequest";
+import AmbulanceRequest from "./pages/AmbulanceRequest"; 
 import AdminAmbulance from "./pages/AdminAmbulance";
-  
 
 export default function App() {
   return (
@@ -205,28 +204,11 @@ export default function App() {
 
           {/* ADMIN */}
 
-          {/* <Route
+          <Route
             path="/admin"
             element={
               <ProtectedRoute role="admin">
                 <Admin />
-              </ProtectedRoute>
-            }
-          /> */}
-          <Route
-            path="/features/ambulance-tracking"
-            element={
-              <ProtectedRoute role="user">
-                <AmbulanceRequest />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/admin/ambulance"
-            element={
-              <ProtectedRoute role="admin">
-                <AdminAmbulance />
               </ProtectedRoute>
             }
           />
@@ -315,12 +297,25 @@ export default function App() {
         </ProtectedRoute>
     }
 />
-       <Route path="/ambulance-request" element={<AmbulanceRequest />} />
+{/* USER VIEW FOR AMBULANCE */}
+<Route
+  path="/features/ambulance-tracking"
+  element={
+    <ProtectedRoute role="user">
+      <AmbulanceRequest />
+    </ProtectedRoute>
+  }
+/>
 
-
-<Route path="/admin" element={<AdminAmbulance />} />
-
-
+{/* ADMIN VIEW FOR AMBULANCE */}
+<Route
+  path="/admin/ambulance-tracking"
+  element={
+    <ProtectedRoute role="admin">
+      <AdminAmbulance />
+    </ProtectedRoute>
+  }
+/>
         </Routes>
 
         
